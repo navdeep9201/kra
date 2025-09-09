@@ -127,15 +127,28 @@ class AuthManager {
             // Show loading state
             this.setLoginLoading(true);
             
-            // Attempt authentication through DataHandler
-            const response = await window.DataHandler.authenticateUser(employeeCode);
-            
-            if (response.success) {
-                this.handleLoginSuccess(response.user, response.offline);
+            // First try dummy users for frontend testing
+            const dummyUser = this.getDummyUser(employeeCode);
+            if (dummyUser) {
+                this.handleLoginSuccess(dummyUser, false);
                 this.resetLoginAttempts();
-                return { success: true, user: response.user };
-            } else {
-                throw new Error(response.message || 'Authentication failed');
+                return { success: true, user: dummyUser };
+            }
+            
+            // If not a dummy user, try backend authentication
+            try {
+                const response = await window.DataHandler.authenticateUser(employeeCode);
+                
+                if (response.success) {
+                    this.handleLoginSuccess(response.user, response.offline);
+                    this.resetLoginAttempts();
+                    return { success: true, user: response.user };
+                } else {
+                    throw new Error(response.message || 'Authentication failed');
+                }
+            } catch (backendError) {
+                // If backend fails, show error for unknown employee codes
+                throw new Error('Employee code not found. Try: ADM001, MGR001, HR001, EMP001, or EMP002');
             }
             
         } catch (error) {
@@ -559,6 +572,71 @@ class AuthManager {
     
     getActivityLogs() {
         return JSON.parse(localStorage.getItem('pms_activity_logs') || '[]');
+    }
+    
+    /**
+     * Get dummy user for frontend testing
+     */
+    getDummyUser(employeeCode) {
+        const dummyUsers = {
+            'ADM001': {
+                emp_code: 'ADM001',
+                name: 'System Administrator',
+                division: 'Corporate',
+                designation: 'System Admin',
+                location: 'Head Office',
+                department: 'Information Technology',
+                user_type: 'admin',
+                email: 'admin@company.com',
+                status: 'active'
+            },
+            'MGR001': {
+                emp_code: 'MGR001',
+                name: 'John Manager',
+                division: 'Regional North',
+                designation: 'Department Manager',
+                location: 'Branch Office 1',
+                department: 'Sales',
+                user_type: 'approval_manager1',
+                email: 'john.manager@company.com',
+                status: 'active'
+            },
+            'HR001': {
+                emp_code: 'HR001',
+                name: 'Sarah HR',
+                division: 'Corporate',
+                designation: 'HR Manager',
+                location: 'Head Office',
+                department: 'Human Resources',
+                user_type: 'hr_manager1',
+                email: 'sarah.hr@company.com',
+                status: 'active'
+            },
+            'EMP001': {
+                emp_code: 'EMP001',
+                name: 'Alice Employee',
+                division: 'Regional South',
+                designation: 'Senior Executive',
+                location: 'Branch Office 2',
+                department: 'Finance',
+                user_type: 'individual_user',
+                email: 'alice.employee@company.com',
+                status: 'active'
+            },
+            'EMP002': {
+                emp_code: 'EMP002',
+                name: 'Bob Worker',
+                division: 'Regional East',
+                designation: 'Executive',
+                location: 'Branch Office 3',
+                department: 'Operations',
+                user_type: 'individual_user',
+                email: 'bob.worker@company.com',
+                status: 'active'
+            }
+        };
+        
+        return dummyUsers[employeeCode.toUpperCase()] || null;
     }
     
     /**
