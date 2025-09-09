@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Login Section -->
+    <div id="loginSection" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Performance Management System</h1>
+                <p>Enter your employee code to continue</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="empCode">Employee Code</label>
+                    <input type="text" id="empCode" name="empCode" required>
+                    <span class="error-message" id="loginError"></span>
+                </div>
+                <button type="submit" class="btn-primary" id="loginBtn">
+                    <span>Login</span>
+                    <div class="btn-spinner" style="display: none;"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboardSection" class="dashboard-container" style="display: none;">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>Performance Management System</h1>
+                <div class="user-info">
+                    <div class="user-details">
+                        <span id="userName"></span>
+                        <span id="userRole" class="role-badge"></span>
+                    </div>
+                    <button id="logoutBtn" class="btn-secondary">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="profile">Employee Profile</button>
+            <button class="tab-btn" data-tab="goals">SMART Goals</button>
+            <button class="tab-btn" data-tab="competencies">Behavioural Competency</button>
+            <button class="tab-btn" data-tab="reports">Reports</button>
+            <button class="tab-btn admin-only" data-tab="admin" style="display: none;">Admin Panel</button>
+        </nav>
+
+        <!-- Tab Content Areas -->
+        <main class="main-content">
+            <!-- Employee Profile Tab -->
+            <div id="profileTab" class="tab-content active">
+                <div class="content-card">
+                    <h2>Employee Profile</h2>
+                    <div class="profile-grid">
+                        <div class="profile-item">
+                            <label>Employee Code:</label>
+                            <span id="profileEmpCode"></span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Name:</label>
+                            <span id="profileName"></span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Division:</label>
+                            <span id="profileDivision"></span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Designation:</label>
+                            <span id="profileDesignation"></span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Location:</label>
+                            <span id="profileLocation"></span>
+                        </div>
+                        <div class="profile-item">
+                            <label>Department:</label>
+                            <span id="profileDepartment"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Summary -->
+                <div class="content-card">
+                    <h2>Performance Summary</h2>
+                    <div class="performance-summary">
+                        <div class="summary-item">
+                            <div class="summary-label">Overall Score</div>
+                            <div class="summary-value" id="overallScore">0%</div>
+                            <div class="rating-stars" id="overallRating"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Goals Achievement</div>
+                            <div class="summary-value" id="goalsScore">0%</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="goalsProgress"></div>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Competency Score</div>
+                            <div class="summary-value" id="competencyScore">0</div>
+                            <div class="rating-medal" id="competencyMedal"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SMART Goals Tab -->
+            <div id="goalsTab" class="tab-content">
+                <div class="content-card">
+                    <div class="section-header">
+                        <h2>SMART Goals Management</h2>
+                        <div class="window-status" id="goalsWindowStatus"></div>
+                    </div>
+                    
+                    <!-- Goals Form -->
+                    <div id="goalsForm">
+                        <div class="goals-container" id="goalsContainer">
+                            <!-- Dynamic goals will be inserted here -->
+                        </div>
+                        
+                        <div class="form-actions" id="goalsActions">
+                            <button type="button" id="addGoalBtn" class="btn-secondary">Add Goal</button>
+                            <button type="button" id="saveGoalsBtn" class="btn-primary">Save Goals</button>
+                        </div>
+                        
+                        <div class="validation-summary" id="goalsValidation">
+                            <div class="weightage-total">
+                                <span>Total Weightage: </span>
+                                <span id="totalWeightage">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Behavioural Competency Tab -->
+            <div id="competenciesTab" class="tab-content">
+                <div class="content-card">
+                    <div class="section-header">
+                        <h2>Behavioural Competency Evaluation</h2>
+                        <div class="window-status" id="competencyWindowStatus"></div>
+                    </div>
+                    
+                    <div id="competencyForm">
+                        <div class="competency-container" id="competencyContainer">
+                            <!-- Dynamic competencies will be inserted here -->
+                        </div>
+                        
+                        <div class="form-actions" id="competencyActions">
+                            <button type="button" id="saveCompetenciesBtn" class="btn-primary">Save Competencies</button>
+                        </div>
+                        
+                        <div class="competency-summary" id="competencySummary">
+                            <div class="summary-score">
+                                <span>Overall Competency Score: </span>
+                                <span id="overallCompetencyScore">0.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Tab -->
+            <div id="reportsTab" class="tab-content">
+                <div class="content-card">
+                    <h2>Performance Reports</h2>
+                    <div class="reports-container">
+                        <div class="report-options">
+                            <button class="btn-primary" id="exportPdfBtn">Export PDF Report</button>
+                            <button class="btn-secondary" id="exportExcelBtn">Export Excel Report</button>
+                        </div>
+                        
+                        <div class="report-preview" id="reportPreview">
+                            <!-- Report preview will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Panel Tab -->
+            <div id="adminTab" class="tab-content admin-only">
+                <div class="content-card">
+                    <h2>System Administration</h2>
+                    <div class="admin-sections">
+                        <!-- Time Window Configuration -->
+                        <div class="admin-section">
+                            <h3>Time Window Configuration</h3>
+                            <div class="time-window-config" id="timeWindowConfig">
+                                <!-- Configuration options will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <!-- User Role Management -->
+                        <div class="admin-section">
+                            <h3>User Role Management</h3>
+                            <div class="role-management" id="roleManagement">
+                                <!-- Role management interface will be loaded here -->
+                            </div>
+                        </div>
+                        
+                        <!-- System Settings -->
+                        <div class="admin-section">
+                            <h3>System Settings</h3>
+                            <div class="system-settings" id="systemSettings">
+                                <!-- System settings will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success/Error Toast Messages -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="confirmTitle">Confirm Action</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="confirmCancel">Cancel</button>
+                <button class="btn-primary" id="confirmOk">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/config.js"></script>
+    <script src="js/dataHandler.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/userRoleSettings.js"></script>
+    <script src="js/behaviouralCompetency.js"></script>
+    <script src="js/actualAchievement.js"></script>
+    <script src="js/kraKpiSetting.js"></script>
+    <script src="js/systemConfig.js"></script>
+    <script src="js/reports.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
