@@ -1,0 +1,657 @@
+/* Responsive CSS - Mobile-first approach */
+
+/* Mobile First - Base styles are for mobile */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+    
+    .login-form {
+        min-width: 400px;
+    }
+    
+    .profile-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .header-content {
+        padding: 0 var(--spacing-xl);
+    }
+    
+    .main-content {
+        padding: var(--spacing-2xl) var(--spacing-xl);
+    }
+    
+    .nav-tabs {
+        padding: 0 var(--spacing-xl);
+    }
+    
+    .profile-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Table responsiveness */
+    .table-responsive {
+        overflow-x: visible;
+    }
+    
+    /* Form layouts */
+    .form-row {
+        display: flex;
+        gap: var(--spacing-lg);
+    }
+    
+    .form-row .form-group {
+        flex: 1;
+    }
+    
+    /* Modal sizing */
+    .modal {
+        max-width: 700px;
+    }
+    
+    /* Navigation improvements */
+    .nav-tabs {
+        overflow-x: visible;
+        justify-content: center;
+    }
+    
+    .nav-tab {
+        flex-shrink: 0;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .main-content {
+        padding: var(--spacing-2xl);
+    }
+    
+    .profile-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Enhanced layouts */
+    .two-column-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .three-column-layout {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    /* Sidebar layouts for admin */
+    .admin-layout {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .admin-sidebar {
+        background: var(--background-secondary);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        height: fit-content;
+        position: sticky;
+        top: var(--spacing-lg);
+    }
+    
+    /* Better form layouts */
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .form-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Enhanced table layouts */
+    .table-container {
+        background: var(--background);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+    }
+    
+    .table-header {
+        background: var(--primary-color);
+        color: white;
+        padding: var(--spacing-lg);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Modal improvements */
+    .modal {
+        max-width: 800px;
+    }
+    
+    .modal-large {
+        max-width: 1000px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .main-content {
+        max-width: 1200px;
+    }
+    
+    .profile-details {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Enhanced admin layouts */
+    .admin-layout {
+        grid-template-columns: 300px 1fr;
+    }
+    
+    /* Better dashboard layouts */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    /* Enhanced form layouts */
+    .form-grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Full-width modals for complex forms */
+    .modal-fullwidth {
+        max-width: 95vw;
+    }
+}
+
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .main-content {
+        max-width: 1320px;
+    }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 575.98px) {
+    /* Header adjustments */
+    .header-content {
+        padding: 0 var(--spacing-md);
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+    
+    .logo h2 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .user-info {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    /* Navigation adjustments */
+    .nav-tabs {
+        padding: 0 var(--spacing-md);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav-tab {
+        min-width: 120px;
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    /* Main content adjustments */
+    .main-content {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    /* Section header adjustments */
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+    
+    .section-header h3 {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Card adjustments */
+    .profile-card,
+    .card {
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Profile details stack vertically */
+    .profile-details {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Summary cards stack vertically */
+    .summary-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    /* Form adjustments */
+    .form-group {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    /* Table responsiveness */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table {
+        min-width: 600px;
+    }
+    
+    .table th,
+    .table td {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Modal adjustments */
+    .modal-container {
+        padding: var(--spacing-md);
+        align-items: flex-start;
+        padding-top: var(--spacing-xl);
+    }
+    
+    .modal {
+        max-width: none;
+        width: 100%;
+        max-height: 85vh;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: var(--spacing-lg);
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+    }
+    
+    /* Notification adjustments */
+    .notification-container {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        left: var(--spacing-md);
+        max-width: none;
+    }
+    
+    .notification {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    /* Login form adjustments */
+    .login-container {
+        padding: var(--spacing-lg);
+    }
+    
+    .login-header h1 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .login-header p {
+        font-size: var(--font-size-base);
+    }
+    
+    .login-form {
+        padding: var(--spacing-xl);
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Dynamic table adjustments */
+    .dynamic-table-row {
+        padding: var(--spacing-md);
+    }
+    
+    .kpi-row {
+        margin-left: var(--spacing-md);
+        padding-left: var(--spacing-md);
+    }
+    
+    /* Performance summary adjustments */
+    .performance-summary {
+        padding: var(--spacing-lg);
+    }
+    
+    .progress-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .progress-circle::before {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .rating-stars .star {
+        font-size: 1.5rem;
+    }
+    
+    .medal-icon {
+        font-size: 2rem;
+    }
+    
+    /* Hide certain elements on mobile */
+    .mobile-hidden {
+        display: none;
+    }
+    
+    /* Show mobile-only elements */
+    .mobile-only {
+        display: block;
+    }
+}
+
+/* Tablet-specific styles */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .tablet-stack {
+        flex-direction: column;
+    }
+    
+    .tablet-full-width {
+        width: 100%;
+    }
+    
+    /* Improved navigation for tablets */
+    .nav-tabs {
+        justify-content: center;
+    }
+    
+    /* Better form layouts for tablets */
+    .form-tablet-row {
+        display: flex;
+        gap: var(--spacing-lg);
+    }
+    
+    .form-tablet-row .form-group {
+        flex: 1;
+    }
+    
+    /* Table improvements for tablets */
+    .table th,
+    .table td {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+    
+    /* Modal improvements for tablets */
+    .modal {
+        max-width: 90vw;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .nav-tabs,
+    .btn,
+    .modal-container,
+    .notification-container {
+        display: none !important;
+    }
+    
+    .main-content {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .card,
+    .profile-card {
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+        break-inside: avoid;
+    }
+    
+    .tab-content {
+        display: block !important;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    /* Ensure good contrast for printing */
+    * {
+        color: #000 !important;
+        background: transparent !important;
+    }
+    
+    .table th {
+        background: #f5f5f5 !important;
+        border: 1px solid #000 !important;
+    }
+    
+    .table td {
+        border: 1px solid #000 !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0000ff;
+        --text-primary: #000000;
+        --text-secondary: #000000;
+        --background: #ffffff;
+        --border-color: #000000;
+    }
+    
+    .btn {
+        border-width: 2px;
+    }
+    
+    .form-control {
+        border-width: 2px;
+    }
+    
+    .card,
+    .profile-card {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .spinner {
+        animation: none;
+        border: 4px solid var(--primary-color);
+    }
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --background: #111827;
+        --background-secondary: #1f2937;
+        --border-color: #374151;
+        --border-light: #4b5563;
+    }
+    
+    .loading-screen {
+        background: linear-gradient(135deg, #1f2937, #111827);
+    }
+    
+    .login-container {
+        background: linear-gradient(135deg, #1f2937, #111827);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+    .login-container {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: var(--spacing-lg);
+    }
+    
+    .login-header {
+        margin-bottom: 0;
+        margin-right: var(--spacing-xl);
+        text-align: left;
+    }
+    
+    .login-form {
+        margin: 0;
+    }
+    
+    .modal-container {
+        align-items: center;
+        padding-top: var(--spacing-md);
+    }
+    
+    .modal {
+        max-height: 95vh;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .form-control {
+        min-height: 44px;
+        padding: var(--spacing-md);
+    }
+    
+    .nav-tab {
+        min-height: 44px;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .table th,
+    .table td {
+        padding: var(--spacing-md);
+    }
+    
+    /* Remove hover effects on touch devices */
+    .btn:hover,
+    .nav-tab:hover,
+    .table tbody tr:hover {
+        background-color: initial;
+        color: initial;
+    }
+    
+    /* Enhance focus states for touch */
+    .btn:focus,
+    .form-control:focus,
+    .nav-tab:focus {
+        outline: 3px solid var(--primary-color);
+        outline-offset: 2px;
+    }
+}
+
+/* Container queries for modern browsers */
+@supports (container-type: inline-size) {
+    .responsive-container {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 400px) {
+        .container-responsive {
+            flex-direction: column;
+        }
+    }
+    
+    @container (min-width: 600px) {
+        .container-responsive {
+            flex-direction: row;
+        }
+    }
+}
