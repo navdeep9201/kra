@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Performance Management System Files</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .file-list { margin: 20px 0; }
+        .file-item { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .download-btn { background: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+        .download-btn:hover { background: #0056b3; }
+        .download-all { background: #28a745; padding: 12px 24px; font-size: 16px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Performance Management System - File Download</h1>
+    <p>Click the buttons below to download individual files or all files as a ZIP.</p>
+    
+    <button class="download-btn download-all" onclick="downloadAllFiles()">Download All Files as ZIP</button>
+    
+    <div class="file-list">
+        <div class="file-item">
+            <strong>index.html</strong> - Main HTML file
+            <button class="download-btn" onclick="downloadFile('index.html')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>css/main.css</strong> - Core styles
+            <button class="download-btn" onclick="downloadFile('css/main.css')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>css/components.css</strong> - UI components
+            <button class="download-btn" onclick="downloadFile('css/components.css')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>css/responsive.css</strong> - Mobile styles
+            <button class="download-btn" onclick="downloadFile('css/responsive.css')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>css/themes.css</strong> - Theme variations
+            <button class="download-btn" onclick="downloadFile('css/themes.css')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/app.js</strong> - Main controller
+            <button class="download-btn" onclick="downloadFile('js/app.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/datahandle.js</strong> - API and CRUD operations
+            <button class="download-btn" onclick="downloadFile('js/datahandle.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/Auth.js</strong> - Authentication
+            <button class="download-btn" onclick="downloadFile('js/Auth.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/KRA_KPI_Setting.js</strong> - Goals management
+            <button class="download-btn" onclick="downloadFile('js/KRA_KPI_Setting.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/ActualAchievement.js</strong> - Achievement tracking
+            <button class="download-btn" onclick="downloadFile('js/ActualAchievement.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/BehaviouralCompetency.js</strong> - Competency evaluation
+            <button class="download-btn" onclick="downloadFile('js/BehaviouralCompetency.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/UserRolesSetting.js</strong> - User management
+            <button class="download-btn" onclick="downloadFile('js/UserRolesSetting.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>js/System_Config.js</strong> - System configuration
+            <button class="download-btn" onclick="downloadFile('js/System_Config.js')">Download</button>
+        </div>
+        
+        <div class="file-item">
+            <strong>README.md</strong> - Documentation
+            <button class="download-btn" onclick="downloadFile('README.md')">Download</button>
+        </div>
+    </div>
+
+    <script>
+        function downloadFile(filename) {
+            // This would need to be implemented with actual file content
+            alert('To download files, please copy the content from the chat above or use git commands to recreate the repository.');
+        }
+        
+        function downloadAllFiles() {
+            alert('To get all files:\n\n1. Copy each file content from our chat\n2. Create the folder structure locally\n3. Save each file in the correct location\n4. Push to your GitHub repository\n\nOr I can help you recreate the entire project step by step!');
+        }
+    </script>
+</body>
+</html>
