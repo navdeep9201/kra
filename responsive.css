@@ -1,0 +1,11 @@
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-content { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .nav-tabs { flex-wrap: wrap; }
+}
+
+@media print {
+  .nav-tabs, .btn-primary, .btn-secondary, .modal, .toast-container { display: none !important; }
+  body { background: white; color: black; }
+  .content-card { border: none; box-shadow: none; }
+}

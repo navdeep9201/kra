@@ -325,3 +325,25 @@ GET /performance/overall/:empCode - Get combined performance score
 - **Export Capabilities** - PDF certificates, Excel dashboards, CSV data exports
 
 This enhanced system provides comprehensive performance evaluation combining quantitative goal achievement with qualitative behavioural assessment, ensuring holistic employee development and fair performance measurement.
+
+## Project Structure
+
+```
+/
+├─ pms-main-html.html
+├─ styles.css                # Base styles
+├─ responsive.css            # Responsive overrides
+├─ js/
+│  ├─ config.js              # Environment, endpoints, constants
+│  ├─ utils.js               # Helpers: http, dom, validation, storage
+│  ├─ db.js                  # sql.js wrapper and schema init
+│  ├─ dataHandler.js         # GAS API client + SQLite sync
+│  ├─ auth.js                # Login/session
+│  ├─ kraKpiSetting.js       # KRA + KPI UI/logic
+│  ├─ behaviouralCompetency.js # Competency UI/logic
+│  ├─ actualAchievement.js   # Year-end achievement UI/logic
+│  ├─ userRoleSettings.js    # Role mgmt (admin)
+│  ├─ systemConfig.js        # Time window & system settings (admin)
+│  ├─ reports.js             # Export/preview
+│  └─ main.js                # Bootstrapping and tab wiring
+```
